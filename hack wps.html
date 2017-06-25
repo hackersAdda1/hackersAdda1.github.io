@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<div style="background-color: black">
+<ul>
+	
+
+<li><a href="#">Kali linux</a>
+
+
+       <ul>
+       	
+
+         <li><a href="hack CCTV.html">hack CCTV </a></li> 
+         <li><a href="#">creating payload</a></li>
+         <li><a href="#">how to hack WPA/WPA2 network</a></li>     
+        
+       </ul>
+
+</li>
+<li><a href="#">Contact</a></li>
+<li><a href="hacking.html">Home</a></li> 
+
+</ul>
+	<title>hackersAdda</title>
+</head>
+
+<body>
+
+<font color="purple" size="5px" face="comic sans ms"> 
+<div align="center">
+
+<h1>
+  welcome to hackersAdda
+  <div>
+  
+<img style="float: middle;display: inline;border-radius: 50%; width: 165px;height: 165px" src="aryan4.jpg" hspace="65" alt="aryan4">
+</div>
+  </div>
+</h1>
+</font>
+</div>
+
+<h2 align="center">
+	<font size="6px" color="orange" face="gabriola">
+		WPA/WPA-2 
+	</font>
+</h2>
+
+<h2>
+	<font size="5px" face="gabriola">
+		When it was known that a WEP network could be hacked by any kid with a laptop and a network connection (using easy peasy tutorials like those on our site), the security guys did succeed in making a much more robust security measure WPA/WPA2. <br>
+Now hacking WPA/WPA2 is a very tedious job in most cases. A dictionary attack may take days, and still might not succeed. Also, good dictionaries are huge. An exhaustive bruteforce including all the alphabets (uppercase lowercase) and numbers, may take years, depending on password length. Rainbow tables are known to speed things up, by completing a part of the guessing job beforehand, but the output rainbow table that needs to be downloaded from the net is disastrously large (can be 100s of GBs sometimes). And finally the security folks were at peace. But it was not over yet, as the new WPA technology was not at all easy for the users to configure. With this in mind, a new security measure was introduced to compliment WPA. Wifi Protected Setup (WPS). Now basically it was meant to make WPA even tougher to crack, and much easier to configure (push a button on router and device connects). However, it had a hole, which is now well known, and tools like reaver can exploit it in a single line statement. It still might take hours, but it is much better than the previous scenario in which months of brute-forcing would yield no result. 
+	</font>
+</h2>
+
+<h2 align="center">
+	<font size="6px" color="orange" face="gabriola">
+		Working of WPS 
+	</font>
+</h2>
+
+<h2>
+	<font size="5px" face="gabriola">
+		  
+       Now while most of the things are the same as in WPA, there is a new concept of using pins for authentication. So basically, the client sends 8 digit pins to the access point, which verifies it and then allows the client to connect. Now a pin has 8 digits, and only contains numbers, so its a possible target for bruteforece. Under normal bruteforcing of WPA passwords, you have to consider the fact that there may be number, alphabets, and sometimes symbols (and more than 8 letters). This make the task a billion billion times tougher. However, we can try thousands of keys per second, which make it a tad bit easier. Now in WPS, there is a delay because we have to wait for APs response, and we may only try a few keys per second (practically the best I've seen on my PC is 1 key per 2 sec). Basically, 8 digits and 10 possibilities per digit (0-9) make it 10^8 (interpret ^ as raised to the power of)seconds if we assume one key per second. Now that'll be years. So, where is this taking us? The answer is, there are flaws in this technology that can be used against it. <br> 
+. The 8th digit is a checksum of first 7 digits. 10^7 possibilities, i.e. one-tenth time. Two months, still a way to go. <br>
+. The pin number for verification goes in two halves, so we can independently verify the first four and the last four digits. And believe me, its easy to guess 4 digits correct two times, than to guess 8 correct digits at once. Basically, the first half would take 10^4 guess and the second would take 10^3. <br>
+Now the guesses would be 10^4 + 10^3 (not 10^4 *10 ^3). Now we need 11,000 guesses.
+
+	</font>
+    
+
+</h2>
+
+<div align="center">
+	<img src="new 1.png">
+</div>
+
+<h2>
+	<font size="5px" face="gabriola">
+		
+       So that'll take 3 hours approximately. And that's all the combinations, and most probably the correct pin will not be the last combination, so you can expect to reach the result earlier. However, the assumption is that bruteforcing will take place at a key per second. My personal best is a key every 2 seconds, and yours might drop to as low as a key every 10 seconds.
+
+	</font>
+
+</h2>
+
+<h2 align="center">
+	<font size="6px" color="orange" face="gabriola">
+		How to carry out the attack
+	</font>
+</h2>
+
+<h2>
+	<font size="5px" face="gabriola">
+		
+        Now it might have been tough to carry out this attack at some point in history, but now, its a breeze. If you have all the prerequisites, then hacking the network would be as easy as
+
+	</font>
+</h2>
+
+
+<div style=" background-color: #ECB56E">
+	 
+  <h2 align="center">
+  	<font size="5px" face="gabriola">
+  		
+      root@kali#- "reaver -i "interface-name" -b "BSSID of target"
+
+  	</font>
+
+  </h2>
+   
+</div>
+
+
+<h2>
+	<font size="5px" face="gabriola">
+		And if you are already familiar with hacking WEP, then just go to your Kali Linux terminal and type the above command (replacing what needs to be replaced). Leave your machine as is, come back 10 mins later, check the progress (must be 1% or  something), and go take a nap. However, if you're a newbie, then tag along.
+	</font>
+</h2>
+
+<h2 align="center">
+	<font size="6px" color="orange" face="gabriola">
+		Information gathering
+	</font>
+</h2>
+
+<h2>
+	<font size="5px" face="gabriola">
+		Now you need to find out the following about you target network- <br>
+. Does it have WPS enabled. If not, then the attack will not work. <br>
+. The BSSID of the network.<br>
+Now to check whether the network has WPS enabled or not, you can either use wash or just use the good old airodump-ng. Wash is specifically meant to check whether a network has WPS enabled or not, and thereby is much easier to use. Here are the steps- <br> 
+<br>
+Set your wireless interface in monitor mode- 
+	</font>
+</h2>
+
+<div style=" background-color: #ECB56E">
+	 
+  <h2 align="center">
+  	<font size="5px" face="gabriola">
+  		
+      root@kali#- "airmon-ng start wlan0"
+
+  	</font>
+
+  </h2>
+   
+</div>
+
+
+
+</body>
+
+</html>
